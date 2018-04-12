@@ -5,7 +5,7 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 function preload() {
 
     game.load.tilemap('map', 'assets/ninja-tilemap.json', null, Phaser.Tilemap.TILED_JSON);
-    game.load.image('ball', 'assets/hqdefault.png');
+    game.load.image('ball', 'assets/bread.png');
     game.load.image('sky', 'assets/sky2.png');
     game.load.image('kenney', 'assets/kenney.png');
 
@@ -38,6 +38,7 @@ function create() {
     tiles = game.physics.ninja.convertTilemap(map, layer, slopeMap);
 
     sprite1 = game.add.sprite(50, 50, 'ball');
+    sprite1.scale.setTo(0.1, 0.1);
 
     game.physics.ninja.enableCircle(sprite1, sprite1.width / 2);
 
