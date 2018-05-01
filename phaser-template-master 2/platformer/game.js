@@ -50,7 +50,10 @@ const game = new Phaser.Game(
 
 // Phaser function to load assets and set up the game
 function preload() {
-  imageFiles.forEach(e => game.load.image(e.name, e.path));
+  
+	game.load.image("background","assets/hubble_big_bang.jpg");
+	
+	imageFiles.forEach(e => game.load.image(e.name, e.path));
   kbd = game.input.keyboard.createCursorKeys();
 }
 
@@ -59,6 +62,9 @@ function preload() {
 // Phaser function to set up the initial gamestate
 function create() { 
 
+	this.tileSprite = game.add.tileSprite(-80, -30, 900, 480, 'background');
+	this.tileSprite.autoScroll(0, 100);
+	
   // Gentlefolk, start your physics engines
     
     game.time.events.add(Phaser.Timer.SECOND * 10, TIMERFUNCTION, this);
