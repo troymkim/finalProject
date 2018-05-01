@@ -161,6 +161,8 @@ function MYFUNCTION(player,bread) {
     if (numchildren===0) {
         console.log("here");
         alert("Game Over. Press ok and refresh the page to play again");
+         game.state.restart();
+
         
     }
 }
