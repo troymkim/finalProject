@@ -71,6 +71,7 @@ function create() {
   game.physics.startSystem(Phaser.Physics.ARCADE);
   game.world.setBounds(0, 0, worldWidth, worldHeight);
 
+    
   // Make the platforms group array
     breads=game.add.group ();
     breads.enableBody=true;
@@ -144,7 +145,9 @@ function TIMERFUNCTION() {
         
     } else {
            alert("Game Over. Press ok and refresh the page to play again");
- 
+            player.body.moves=false;
+            game.state.restart();
+
     }
 }
 
