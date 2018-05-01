@@ -4,10 +4,10 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: p
 
 function preload() {
 
-    game.load.tilemap('map', 'assets/tilemaps/maps/ninja-tilemap.json', null, Phaser.Tilemap.TILED_JSON);
-    game.load.image('ball', 'assets/sprites/shinyball.png');
-    game.load.image('sky', 'assets/skies/sky2.png');
-    game.load.image('kenney', 'assets/tilemaps/tiles/kenney.png');
+    game.load.tilemap('map', 'assets/ninja-tilemap.json', null, Phaser.Tilemap.TILED_JSON);
+    game.load.image('ball', 'assets/shinyball.png');
+    game.load.image('sky', 'assets/sky2.png');
+    game.load.image('kenney', 'assets/kenney.png');
 
 }
 
@@ -60,20 +60,19 @@ function update() {
 
     if (cursors.left.isDown)
     {
-        sprite1.body.moveLeft(20);
+        sprite1.body.moveLeft(80);
     }
     else if (cursors.right.isDown)
     {
-        sprite1.body.moveRight(20);
+        sprite1.body.moveRight(80);
     }
 
     if (cursors.up.isDown)
     {
-        sprite1.body.moveUp(20);
+        sprite1.body.moveUp(80);
     }
     else if (cursors.down.isDown)
     {
-        sprite1.body.moveUp(20);
+        sprite1.body.moveUp(80);
     }
-
 }
