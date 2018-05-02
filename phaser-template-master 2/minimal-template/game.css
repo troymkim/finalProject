@@ -1,0 +1,8 @@
+.title {
+    text-align: center;
+}
+
+.game-area canvas {
+    border: 1px dashed #ccc;
+    margin: 0 auto;
+}
