@@ -144,7 +144,7 @@ function TIMERFUNCTION() {
     if (numchildren===0) {
         
     } else {
-           alert("Game Over. Press ok to play again.");
+           alert("Game Over. Press ok to refresh the page to play again");
             player.body.moves=false;
             game.state.restart();
 
@@ -160,7 +160,7 @@ function MYFUNCTION(player,bread) {
     
     if (numchildren===0) {
         console.log("here");
-        alert("Congratulations! You got all the bread! Press ok to play again.");
+        alert("Game Over. Press ok to refresh the page to play again");
          game.state.restart();
 
         
