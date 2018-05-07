@@ -1,0 +1,22 @@
+body {
+    background-image: url(assets/sky2.png)
+}
+.paragraph {
+    font-size:58px;
+    font-weight: bolder;
+    text-align: center;
+	color:greenyellow; 
+}
+.links {
+    font-size:35px;
+    font-weight: normal;
+    text-align:center;
+    color:yellow;
+}
+.paragraph2 {
+		font-size:55px;
+		font-weight: bolder;
+		text-align: center;
+		color:red;
+	}
+
