@@ -1,141 +1,28 @@
-<!doctype html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8" />
-    <title>Making your first Phaser 3 Game - Part 1</title>
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.1.1/dist/phaser.js"></script>
-    <style type="text/css">
-        body {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
+<!DOCTYPE html>
 
-<script type="text/javascript">
-    
-    
-    
-    
-    
-    
-    
-    
-    var config = {
-        type: Phaser.AUTO,
-        width: 800,
-        height: 600,
-        physics: {
-            default:'arcade',
-            arcade: {
-                gravity: {y:300},
-                debug:false
-            }
-        },
-        scene: {
-            preload: preload,
-            create: create,
-            update: update
-        }
-    };
-
-        alert("did not make game");
-
-    var game = new Phaser.Game(config);
-    
-    
-    
-    
-    
-
-function preload() {
-    //this.load.tilemap('map', 'assets/ninja-tilemap.json', null, Phaser.Tilemap.TILED_JSON);
-    this.load.image('ball', 'assets/shinyball.png');
-    this.load.image('sky', 'assets/sky2.png');
-
-    this.load.image('kenney', 'assets/kenney.png');
-
-        alert("ended preload");
-
-}
-
-var sprite1;
-var cursors;
-var map;
-var layer;
-var tiles;
-
-function create() {
-
-    alert("created");
-    var sky = this.add.image(0, 0, 'sky');
-    alert("1");
-    sky.fixedToCamera = true;
-    alert("1");
-
-    //  Activate the Ninja physics system
-
-    map = this.add.tilemap('map');
-    alert("1");
-
-    map.addTilesetImage('kenney');
-        alert("1");
-
-    layer = map.createLayer('Tile Layer 1');
-    alert("1");
-
-    layer.resizeWorld();
-    alert("1");
-
-    var slopeMap = { '32': 1, '77': 1, '95': 2, '36': 3, '137': 3, '140': 2 };
-    alert("1");
-
-    tiles = this.physics.ninja.convertTilemap(map, layer, slopeMap);
-
-    sprite1 = game.add.sprite(50, 50, 'ball');
-        alert("2");
-
-    this.physics.ninja.enableCircle(sprite1, sprite1.width / 2);
-
-    //  A little more bounce
-    sprite1.body.bounce = 0.5;
-
-    game.camera.follow(sprite1);
-
-    cursors = game.input.keyboard.createCursorKeys();
-        alert("ended creation");
-
-
-}
-
-function update() {
-
-    for (var i = 0; i < tiles.length; i++)
-    {
-        sprite1.body.circle.collideCircleVsTile(tiles[i].tile);
-
-    }
-
-    if (cursors.left.isDown)
-    {
-        sprite1.body.moveLeft(20);
-    }
-    else if (cursors.right.isDown)
-    {
-        sprite1.body.moveRight(20);
-    }
-
-    if (cursors.up.isDown)
-    {
-        sprite1.body.moveUp(20);
-    }
-    else if (cursors.down.isDown)
-    {
-        sprite1.body.moveUp(20);
-    }
-
-}
-</script>
-
-</body>
-</html>
+<html>
+    <head>
+        <title>Platrunner</title>
+        <link rel="stylesheet" href="titlepage2.css">
+	</head>
+	
+	<body>
+        <p class="paragraph">
+       PLATFORM RUNNER 
+        <br>  
+        <br>
+            
+    </p>
+  		<p class="paragraph2">
+			COLLECT ALL BREAD BEFORE TIME RUNS OUT
+		</p>
+		
+		   <p class="links">
+       <a
+          href="game.html" style="color: rgb(255,255,0)"> CLICK TO PLAY</a>
+       <br>
+           
+        
+        
+     </p>
+        

@@ -38,6 +38,7 @@ let kbd;
 let player;
 let platforms;
 let breads;
+let numchildren;
 
 // Create the Phaser game
 const game = new Phaser.Game(
@@ -49,7 +50,10 @@ const game = new Phaser.Game(
 
 // Phaser function to load assets and set up the game
 function preload() {
-  imageFiles.forEach(e => game.load.image(e.name, e.path));
+  
+	game.load.image("background","assets/hubble_big_bang.jpg");
+	
+	imageFiles.forEach(e => game.load.image(e.name, e.path));
   kbd = game.input.keyboard.createCursorKeys();
 }
 
@@ -58,10 +62,16 @@ function preload() {
 // Phaser function to set up the initial gamestate
 function create() { 
 
+	this.tileSprite = game.add.tileSprite(-80, -30, 900, 480, 'background');
+	this.tileSprite.autoScroll(0, 100);
+	
   // Gentlefolk, start your physics engines
+    
+    game.time.events.add(Phaser.Timer.SECOND * 10, TIMERFUNCTION, this);
   game.physics.startSystem(Phaser.Physics.ARCADE);
   game.world.setBounds(0, 0, worldWidth, worldHeight);
 
+    
   // Make the platforms group array
     breads=game.add.group ();
     breads.enableBody=true;
@@ -80,8 +90,10 @@ function create() {
         breads.create(e.x, e.y-20, "bread").body.immovable=true;
     
       }
+    
   );
 
+    numchildren=breads.length;
   // Create the player object
   player = game.add.sprite(
     30, height - playerProps.height, "player"
@@ -93,7 +105,7 @@ function create() {
   player.body.gravity.y = playerProps.gravity;
   player.body.collideWorldBounds = true;
 
-  // Have the camera follow the player
+  //Have the camera follow the player
   game.camera.follow(player);
 }
 
@@ -128,11 +140,32 @@ function update() {
     
 }
 
+function TIMERFUNCTION() {
+    if (numchildren===0) {
+        
+    } else {
+           alert("Game Over. Press ok to play again.");
+            player.body.moves=false;
+            game.state.restart();
+
+    }
+}
+
 function MYFUNCTION(player,bread) {
     bread.kill();
     
-    alert("ACTIVE: " + breads.countActive());
+    console.log("active "+numchildren);
     
-if (breads.countActive() == 0)
-    alert ("Good Game");
+    numchildren-=1;
+    
+    if (numchildren===0) {
+        console.log("here");
+        alert("Congratulations! You got all the bread! Press ok to play again.");
+         game.state.restart();
+
+        
+    }
 }
+
+
+
